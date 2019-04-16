@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.logprintdemo.NeedLogService;
 import com.example.demo.logprintdemo.NormalService;
+import com.example.demo.methodexpireddemo.NeedExpiredService;
 import com.example.demo.service.DemoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,8 @@ public class DemoEntityApplicationTests {
 
 	@Autowired
 	private NormalService normalService;
+	@Autowired
+	private NeedExpiredService needExpiredService;
 
 	@Test
 	public void contextLoads() {
@@ -37,6 +40,11 @@ public class DemoEntityApplicationTests {
 			// Ignore
 		}
 		normalService.someMethod();
+	}
+
+	@Test
+	public void testExpired() {
+		needExpiredService.doSomeTime();
 	}
 
 }
