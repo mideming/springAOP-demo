@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.HamburgerUserMapper">
+    <sql id="columns">
+        <![CDATA[
+		user_name,
+		user_password,
+		user_mobile,
+		user_description,
+		user_logo,
+		update_time,
+		create_time
+	    ]]>
+    </sql>
+    <insert id="insert" parameterType="com.example.demo.entity.HamburgerUserEntity" useGeneratedKeys="true" keyProperty="userId" keyColumn="user_id">
+        INSERT INTO hamburger_user(
+        <include refid="columns"/>
+        )VALUES(
+        #{userName},
+        #{userPassword},
+        #{userMobile},
+        #{userDescription},
+        #{userLogo},
+        #{updateTime},
+        #{createTime}
+        )
+    </insert>
+
+</mapper>
